@@ -1,0 +1,64 @@
+@import './styles/hero.css';
+
+@font-face {
+  font-family: 'Neutral Face';
+  src: url('./assets/fonts/NeutralFace-Regular.woff') format('woff');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Neutral Face';
+  src: url('./assets/fonts/NeutralFace-Bold.woff') format('woff');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700 900;
+}
+
+@font-face {
+  font-family: 'Pretendard Variable';
+  src: url('./assets/fonts/PretendardVariable.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 45 920;
+}
+
+:root {
+  --brand-primary: #fa5014;
+  --font-neutral-face: 'Neutral Face';
+  --font-pretendard: 'Pretendard Variable';
+  --font-en: var(--font-neutral-face);
+  --font-ko: var(--font-pretendard);
+  --font-family-global: var(--font-en), var(--font-ko), sans-serif;
+  /* Adapter: this prototype has no fixed site header. */
+  --site-header-height: 0rem;
+  font-family: var(--font-family-global);
+  color: #f6f7f2;
+  background: #1f2924;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body, #root { width: 100%; min-height: 100%; margin: 0; }
+body { word-break: keep-all; overflow-wrap: break-word; }
+button, a { font: inherit; }
+button:focus-visible, a:focus-visible { outline: 3px solid #ff6b22; outline-offset: 4px; }
+
+html:has(#home-snap-page) {
+  scroll-snap-type: y mandatory;
+}
+
+@media (max-width: 52rem), (max-height: 47rem) {
+  html:has(#home-snap-page) { scroll-snap-type: y proximity; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

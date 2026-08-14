@@ -1,0 +1,320 @@
+.section {
+  position: relative;
+  height: calc(100svh - var(--site-header-height, 5rem));
+  min-height: 32rem;
+  overflow: hidden;
+  background: #242420;
+  isolation: isolate;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.section::before,
+.section::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+}
+
+.section::before {
+  z-index: -2;
+  background-image: url("/how-we-hire/how-we-hire-top-view.png");
+  background-position: center;
+  background-size: cover;
+  filter: blur(2.5px) brightness(66%) saturate(82%);
+  transform: scale(1.012);
+  will-change: filter, transform;
+}
+
+.section::after {
+  z-index: -1;
+  background: rgb(15 13 11 / 22%);
+  will-change: opacity;
+}
+
+.mapOverlay {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 420ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.section[data-map-ready="true"] .mapOverlay {
+  opacity: 1;
+}
+
+.routeLayer,
+.highlightLayer,
+.badgeLayer {
+  pointer-events: none;
+}
+
+.routeGlow,
+.routeLine {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: routeDraw 560ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  vector-effect: non-scaling-stroke;
+}
+
+.routeGlow {
+  stroke: rgb(250 80 20 / 24%);
+  stroke-width: 10;
+  filter: url("#route-glow");
+}
+
+.routeLine {
+  stroke: var(--brand-primary);
+  stroke-width: 4;
+}
+
+.buildingLiftImage {
+  animation: buildingLiftIn 280ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  filter: brightness(1.18) contrast(1.08) saturate(1.06) drop-shadow(0 5px 9px rgb(250 80 20 / 22%));
+}
+
+.buildingHighlight {
+  fill: rgb(250 80 20 / 0%);
+  stroke: rgb(250 80 20 / 0%);
+  stroke-width: 3;
+  vector-effect: non-scaling-stroke;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition:
+    fill 240ms ease-out,
+    stroke 240ms ease-out,
+    opacity 240ms ease-out,
+    transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.buildingHighlightActive {
+  fill: rgb(250 80 20 / 5%);
+  stroke: rgb(255 112 57 / 94%);
+  opacity: 1;
+  filter: url("#building-glow");
+}
+
+.badgeObject {
+  overflow: visible;
+  pointer-events: auto;
+}
+
+.stageBadge {
+  display: flex;
+  width: 140px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 1px solid rgb(255 255 255 / 74%);
+  border-radius: 12px;
+  padding: 0 13px;
+  backdrop-filter: blur(10px) saturate(118%);
+  background: rgb(255 250 247 / 78%);
+  color: #211c19;
+  box-shadow: 0 7px 19px rgb(27 20 16 / 22%);
+  cursor: pointer;
+  font-family: var(--font-family-global);
+  white-space: nowrap;
+  transition:
+    background-color 180ms ease-out,
+    box-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    color 180ms ease-out,
+    transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stageBadge b {
+  color: var(--brand-primary);
+  font-family: var(--font-en), var(--font-ko), sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+.stageBadge span {
+  font-size: 12px;
+  font-weight: 780;
+  letter-spacing: -0.02em;
+}
+
+.stageBadge:hover,
+.stageBadge:focus-visible {
+  box-shadow: 0 11px 26px rgb(87 37 17 / 30%), 0 0 18px rgb(250 80 20 / 22%);
+  transform: translateY(-2px) scale(1.035);
+}
+
+.stageBadge:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+.stageBadge:active {
+  transform: scale(0.985);
+}
+
+.stageBadgeSelected {
+  border-color: rgb(255 192 166 / 88%);
+  background: var(--brand-primary);
+  color: #fff;
+  box-shadow: 0 12px 28px rgb(118 42 12 / 34%), 0 0 22px rgb(250 80 20 / 28%);
+}
+
+.stageBadgeReached {
+  border-color: rgb(250 80 20 / 44%);
+  background: rgb(255 250 247 / 90%);
+  box-shadow: 0 7px 19px rgb(71 34 18 / 20%);
+}
+
+.stageBadgeSelected b {
+  color: #fff;
+}
+
+.srStatus {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  margin: -1px;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.intro {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: clamp(1.25rem, 4vw, 4rem);
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 0.15rem 1.5rem rgb(0 0 0 / 42%);
+  will-change: opacity, filter, transform;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0 0 clamp(1rem, 2.2vh, 1.35rem);
+  color: var(--brand-primary);
+  font-size: clamp(0.7rem, 0.8vw, 0.78rem);
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  line-height: 1.4;
+}
+
+.eyebrow::before {
+  width: 1.75rem;
+  height: 2px;
+  flex: 0 0 auto;
+  background: currentColor;
+  content: "";
+}
+
+.intro h2 {
+  margin: 0;
+  color: inherit;
+  font-size: clamp(2.5rem, 5vw, 4.8rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.intro h2 span {
+  display: block;
+  white-space: nowrap;
+}
+
+.section[data-intro-state="playing"]::before {
+  animation: mapClear 700ms 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.section[data-intro-state="playing"]::after {
+  animation: overlayClear 700ms 2s ease-out forwards;
+}
+
+.section[data-intro-state="playing"] .intro {
+  animation: introFade 700ms 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes mapClear {
+  to {
+    filter: blur(0) brightness(100%) saturate(100%);
+    transform: scale(1);
+  }
+}
+
+@keyframes overlayClear {
+  to { opacity: 0; }
+}
+
+@keyframes introFade {
+  to {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(-0.35rem) scale(0.992);
+    visibility: hidden;
+  }
+}
+
+@keyframes routeDraw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes buildingLiftIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 47.99rem) {
+  .section { min-height: 28rem; }
+
+  .intro h2 {
+    font-size: clamp(2rem, 9.5vw, 3.15rem);
+    line-height: 1.13;
+  }
+}
+
+@media (max-width: 23rem) {
+  .intro h2 { font-size: 1.9rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section[data-intro-state="playing"]::before,
+  .section[data-intro-state="playing"]::after,
+  .section[data-intro-state="playing"] .intro {
+    animation-duration: 1ms;
+  }
+
+  .section[data-intro-state="playing"] .intro {
+    filter: none;
+    transform: none;
+  }
+
+  .mapOverlay,
+  .buildingLiftImage,
+  .buildingHighlight,
+  .stageBadge {
+    transition: none;
+  }
+
+  .routeGlow,
+  .routeLine {
+    animation-duration: 1ms;
+    animation-delay: 0ms;
+  }
+}
