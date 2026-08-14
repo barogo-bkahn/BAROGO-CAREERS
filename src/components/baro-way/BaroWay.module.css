@@ -17,8 +17,9 @@
   align-items: center;
   justify-content: center;
   width: min(100%, 1760px);
-  height: 100%;
+  height: calc(100% - var(--site-header-height));
   margin: 0 auto;
+  margin-top: var(--site-header-height);
   padding: clamp(38px, 5vh, 58px) var(--section-gutter);
   text-align: center;
 }
@@ -71,16 +72,6 @@
   overflow: hidden;
 }
 
-.bracket {
-  flex: 0 0 auto;
-  padding: 0 clamp(16px, 2.5vw, 38px);
-  color: #aaa9a2;
-  font-family: var(--font-en), var(--font-ko), sans-serif;
-  font-size: clamp(30px, 2.6vw, 42px);
-  font-weight: 400;
-  line-height: 1;
-}
-
 .rail {
   width: 100%;
   height: 100%;
@@ -112,6 +103,8 @@
   font-weight: 760;
   letter-spacing: -.045em;
 }
+
+.principle strong span { color: #aaa9a2; font-weight: 400; }
 
 .principle em { color: var(--color-primary); font-style: normal; }
 .dash { flex: 0 0 auto; color: #aaa9a2; }
@@ -183,8 +176,7 @@
   .lead { margin-top: 13px; font-size: clamp(15px, 4vw, 18px); line-height: 1.5; }
   .intro { transform: translateY(-34px); }
   .rollerFrame { height: clamp(68px, 9vh, 82px); margin-top: 20px; }
-  .roller { width: calc(100% - 42px); }
-  .bracket { padding: 0 7px; font-size: 25px; }
+  .roller { width: 100%; }
   .principle {
     gap: 7px;
     justify-content: center;

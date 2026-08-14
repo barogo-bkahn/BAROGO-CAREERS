@@ -8,7 +8,7 @@
   height: 100dvh;
   min-height: 100dvh;
   max-height: 100dvh;
-  padding: clamp(16px, 4vh, 40px) 20px;
+  padding: calc(var(--site-header-height) + clamp(12px, 2.5vh, 24px)) 20px clamp(12px, 2.5vh, 24px);
   overflow: hidden;
   color: #222;
   background: #fff;
@@ -44,8 +44,8 @@
   display: grid;
   grid-template-rows: auto minmax(0, 1fr) auto;
   width: min(100%, 560px);
-  height: clamp(440px, 65dvh, 570px);
-  max-height: calc(100dvh - 145px);
+  height: clamp(420px, 61dvh, 550px);
+  max-height: calc(100dvh - var(--site-header-height) - 138px);
   overflow: hidden;
   border: 1px solid rgba(25, 25, 25, .055);
   border-radius: 28px;
@@ -207,7 +207,7 @@
 @media (max-width: 600px) {
   .section {
     gap: 20px;
-    padding: 14px clamp(16px, 4.5vw, 20px);
+    padding: calc(var(--site-header-height) + 10px) clamp(16px, 4.5vw, 20px) 12px;
   }
 
   .guidance h2,
@@ -218,8 +218,8 @@
 
   .chat {
     width: 100%;
-    height: calc(100dvh - 150px);
-    max-height: calc(100dvh - 150px);
+    height: calc(100dvh - var(--site-header-height) - 140px);
+    max-height: calc(100dvh - var(--site-header-height) - 140px);
     border-radius: 24px;
   }
 
@@ -234,10 +234,10 @@
 }
 
 @media (max-height: 560px) {
-  .section { gap: 10px; padding-top: 8px; padding-bottom: 8px; }
+  .section { gap: 10px; padding-top: calc(var(--site-header-height) + 6px); padding-bottom: 6px; }
   .guidance h2 { font-size: 20px; }
   .guidance p { margin-top: 3px; font-size: 11px; }
-  .chat { height: calc(100dvh - 90px); max-height: calc(100dvh - 90px); }
+  .chat { height: calc(100dvh - var(--site-header-height) - 78px); max-height: calc(100dvh - var(--site-header-height) - 78px); }
   .chatHeader { min-height: 58px; padding: 8px 18px; }
   .chatIdentity { padding: 8px 14px; }
   .messages { padding-top: 14px; padding-bottom: 14px; }

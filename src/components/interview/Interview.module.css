@@ -12,18 +12,23 @@
 }
 
 .portraits,
-.portrait,
 .scrim {
   position: absolute;
   inset: 0;
 }
 
-.portraits { z-index: 0; }
+.portraits {
+  z-index: 0;
+  overflow: hidden;
+}
 
 .portrait {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top !important;
   opacity: 0;
   transition: opacity 700ms ease-out;
 }
@@ -47,7 +52,7 @@
 }
 
 .top {
-  top: clamp(86px, 11vh, 126px);
+  top: calc(var(--site-header-height) + clamp(32px, 5vh, 58px));
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(300px, 370px);
   gap: 64px;
@@ -75,8 +80,8 @@
 
 .description {
   padding-top: 32px;
-  font-size: 15px;
-  line-height: 1.72;
+  font-size: clamp(17px, 1.25vw, 21px);
+  line-height: 1.68;
   text-shadow: 0 2px 16px rgba(0, 0, 0, .4);
   animation: fade-in 500ms ease both;
 }
@@ -226,7 +231,7 @@
     left: 20px;
   }
 
-  .top { top: 68px; gap: 18px; }
+  .top { top: calc(var(--site-header-height) + 24px); gap: 18px; }
   .eyebrow { margin-bottom: 15px; font-size: 10px; }
   .heading h2 {
     font-size: clamp(32px, 9vw, 43px);
@@ -236,8 +241,8 @@
   .description {
     display: -webkit-box;
     overflow: hidden;
-    font-size: 13px;
-    line-height: 1.55;
+    font-size: 15px;
+    line-height: 1.6;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
   }
@@ -271,7 +276,7 @@
 
 @media (max-height: 720px) and (min-width: 601px) {
   .section { min-height: 620px; }
-  .top { top: 72px; }
+  .top { top: calc(var(--site-header-height) + 18px); }
   .heading h2 { font-size: clamp(36px, 6.5vh, 52px); }
   .bottom { bottom: 20px; }
 }

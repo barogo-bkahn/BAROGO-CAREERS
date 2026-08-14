@@ -57,8 +57,7 @@
   --font-ko: var(--font-pretendard);
   --font-display: 'SB Aggro';
   --font-family-global: var(--font-en), var(--font-ko), sans-serif;
-  /* Adapter: this prototype has no fixed site header. */
-  --site-header-height: 0rem;
+  --site-header-height: 76px;
   font-family: var(--font-family-global);
   color: #f6f7f2;
   background: #1f2924;
@@ -71,6 +70,10 @@ html, body, #root { width: 100%; min-height: 100%; margin: 0; }
 body { word-break: keep-all; overflow-wrap: break-word; }
 button, a { font: inherit; }
 button:focus-visible, a:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 4px; }
+
+@media (max-width: 767px) {
+  :root { --site-header-height: 66px; }
+}
 
 html:has(#home-snap-page) {
   scroll-snap-type: y mandatory;

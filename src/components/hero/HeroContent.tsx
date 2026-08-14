@@ -1,18 +1,6 @@
 export default function HeroContent() {
   return (
     <>
-      <header className="hero-header">
-        <a className="hero-header__brand" href="#home-snap-page" aria-label="BAROGO Careers 홈">
-          BAROGO <span>CAREERS</span>
-        </a>
-        <nav className="hero-header__nav" aria-label="주요 메뉴">
-          <a href="#culture">CULTURE</a>
-          <a href="#interview">INTERVIEW</a>
-          <a href="#careers">CAREERS</a>
-          <a href="#faq">FAQ</a>
-        </nav>
-      </header>
-
       <section className="hero-content" aria-labelledby="hero-title">
         <h1 id="hero-title">
           <span className="hero-content__headline-primary">배달을 넘어</span>
