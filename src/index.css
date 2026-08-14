@@ -24,12 +24,38 @@
   font-weight: 45 920;
 }
 
+@font-face {
+  font-family: 'SB Aggro';
+  src: url('./assets/fonts/SB 어그로 L.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'SB Aggro';
+  src: url('./assets/fonts/SB 어그로 M.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'SB Aggro';
+  src: url('./assets/fonts/SB 어그로 B.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
 :root {
-  --brand-primary: #fa5014;
+  --color-primary: #fa5014;
+  --brand-primary: var(--color-primary);
   --font-neutral-face: 'Neutral Face';
   --font-pretendard: 'Pretendard Variable';
   --font-en: var(--font-neutral-face);
   --font-ko: var(--font-pretendard);
+  --font-display: 'SB Aggro';
   --font-family-global: var(--font-en), var(--font-ko), sans-serif;
   /* Adapter: this prototype has no fixed site header. */
   --site-header-height: 0rem;
@@ -44,7 +70,7 @@
 html, body, #root { width: 100%; min-height: 100%; margin: 0; }
 body { word-break: keep-all; overflow-wrap: break-word; }
 button, a { font: inherit; }
-button:focus-visible, a:focus-visible { outline: 3px solid #ff6b22; outline-offset: 4px; }
+button:focus-visible, a:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 4px; }
 
 html:has(#home-snap-page) {
   scroll-snap-type: y mandatory;

@@ -1,0 +1,9 @@
+export type Benefit = { title: string; description: string }
+export const benefits: readonly Benefit[] = [
+  { title: '사내 카페테리아', description: '무제한 음료 제공으로 언제든 활기찬 리프레시와 휴식을 즐길 수 있습니다.' },
+  { title: '복지포인트', description: '매년 60만 원의 복지포인트를 지급하여 개인 라이프스타일에 맞게 활용합니다.' },
+  { title: '월요일 1시 출근', description: '여유로운 주말의 마무리를 돕고 활기찬 한 주를 시작하는 자율출근제입니다.' },
+  { title: '장기근속 포상', description: '함께 걸어온 소중한 시간에 깊은 감사를 담아 특별한 포상을 지원합니다.' },
+  { title: '생일 축하 선물', description: '가장 기쁜 날을 축하하기 위해 정성을 담은 생일 선물을 드립니다.' },
+  { title: '경조사 지원', description: '결혼, 출산, 장례 등 임직원의 인생 주요 순간에 아낌없는 지원을 더합니다.' },
+]
