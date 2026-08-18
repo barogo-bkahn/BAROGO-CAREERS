@@ -54,7 +54,7 @@ export default function AskBarogo() {
         <div className={styles.chatHeader}>
           <div className={styles.chatIdentity}>
             <span className={styles.onlineDot} aria-hidden="true" />
-            <strong>BAROGO AI</strong>
+            <strong>바로고 채용 봇</strong>
           </div>
         </div>
 
@@ -71,7 +71,7 @@ export default function AskBarogo() {
           ))}
 
           {isTyping && (
-            <div className={styles.messageRow} role="status" aria-label="BAROGO AI가 답변을 작성하고 있습니다">
+            <div className={styles.messageRow} role="status" aria-label="바로고 채용 봇이 답변을 작성하고 있습니다">
               <div className={`${styles.bubble} ${styles.aiBubble} ${styles.typing}`} aria-hidden="true">
                 <span /><span /><span />
               </div>
@@ -82,7 +82,7 @@ export default function AskBarogo() {
 
         <div className={styles.composerArea}>
           <form className={styles.composer} onSubmit={handleSubmit}>
-            <label className="sr-only" htmlFor="barogo-chat-input">바로고 AI에게 질문하기</label>
+            <label className="sr-only" htmlFor="barogo-chat-input">바로고 채용 봇에게 질문하기</label>
             <input
               id="barogo-chat-input"
               value={input}
