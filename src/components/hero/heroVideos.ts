@@ -17,5 +17,5 @@ function numericFileOrder(fileName: string) {
 
 export const HERO_VIDEOS = [...HERO_VIDEO_FILES]
   .sort((a, b) => numericFileOrder(a) - numericFileOrder(b))
-  .map((fileName) => `/videos/hero/${fileName}`)
+  .map((fileName) => `./videos/hero/${fileName}`)
 

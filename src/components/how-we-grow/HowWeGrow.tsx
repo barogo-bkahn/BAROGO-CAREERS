@@ -44,7 +44,7 @@ export default function HowWeGrow() {
       <div className={styles.visual}>
         <img
           className={styles.people}
-          src="/images/benefits/benefits-people.png"
+          src="./images/benefits/benefits-people.png"
           alt=""
           loading="lazy"
           aria-hidden="true"

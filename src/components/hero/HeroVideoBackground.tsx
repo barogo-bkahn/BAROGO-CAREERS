@@ -61,7 +61,7 @@ export default function HeroVideoBackground() {
           muted
           playsInline
           preload="auto"
-          poster={slot === 0 ? '/assets/seasonal/spring.webp' : undefined}
+          poster={slot === 0 ? './assets/seasonal/spring.webp' : undefined}
           onEnded={activeSlot === slot ? cutToNext : undefined}
           onCanPlay={() => {
             if (pendingCut.current && activeSlot !== slot) cutToNext()

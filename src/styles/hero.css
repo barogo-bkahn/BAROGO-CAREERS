@@ -23,7 +23,7 @@
 .hero-video-background {
   z-index: 0;
   overflow: hidden;
-  background: #18221d url('/assets/seasonal/spring.webp') center / cover no-repeat;
+  background: #18221d url('./assets/seasonal/spring.webp') center / cover no-repeat;
 }
 
 .hero-video {
