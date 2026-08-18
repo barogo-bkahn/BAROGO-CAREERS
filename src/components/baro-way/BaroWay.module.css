@@ -61,13 +61,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: min(100%, 1060px);
+  gap: clamp(8px, 1.5vw, 20px);
+  width: min(100%, 800px);
   height: clamp(92px, 12vh, 118px);
   margin-top: clamp(36px, 6vh, 66px);
 }
 
+.frameBracket {
+  flex: 0 0 auto;
+  color: #171715;
+  font-family: var(--font-en);
+  font-size: clamp(52px, 4.5vw, 76px);
+  font-weight: 400;
+  line-height: 1;
+}
+
 .roller {
-  width: min(88%, 940px);
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 680px;
   height: 100%;
   overflow: hidden;
 }
@@ -103,8 +115,6 @@
   font-weight: 760;
   letter-spacing: -.045em;
 }
-
-.principle strong span { color: #aaa9a2; font-weight: 400; }
 
 .principle em { color: var(--color-primary); font-style: normal; }
 .dash { flex: 0 0 auto; color: #aaa9a2; }
@@ -175,8 +185,8 @@
   .intro h2 { font-size: clamp(29px, 8.1vw, 39px); line-height: 1.17; }
   .lead { margin-top: 13px; font-size: clamp(15px, 4vw, 18px); line-height: 1.5; }
   .intro { transform: translateY(-34px); }
-  .rollerFrame { height: clamp(68px, 9vh, 82px); margin-top: 20px; }
-  .roller { width: 100%; }
+  .rollerFrame { gap: 7px; height: clamp(68px, 9vh, 82px); margin-top: 20px; }
+  .frameBracket { font-size: clamp(36px, 10vw, 46px); }
   .principle {
     gap: 7px;
     justify-content: center;

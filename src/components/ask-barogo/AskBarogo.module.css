@@ -22,12 +22,14 @@
 }
 
 .guidance h2 {
+  width: 100%;
   margin: 0;
   font-family: var(--font-display), var(--font-ko), sans-serif;
   font-size: clamp(23px, 2vw, 30px);
   font-weight: 500;
   line-height: 1.28;
   letter-spacing: -.02em;
+  text-align: center;
   white-space: nowrap;
 }
 

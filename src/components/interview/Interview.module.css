@@ -67,17 +67,6 @@
   letter-spacing: .16em;
 }
 
-.heading h2 {
-  max-width: 700px;
-  margin: 0;
-  font-family: var(--font-display), var(--font-ko), sans-serif;
-  font-size: clamp(40px, 4.5vw, 72px);
-  font-weight: 700;
-  line-height: 1.18;
-  letter-spacing: -.025em;
-  text-shadow: 0 2px 24px rgba(0, 0, 0, .28);
-}
-
 .description {
   padding-top: 32px;
   font-size: clamp(17px, 1.25vw, 21px);
@@ -211,8 +200,6 @@
     gap: 24px;
   }
 
-  .heading h2 { font-size: clamp(38px, 7vw, 60px); }
-
   .description {
     max-width: 500px;
     padding-top: 0;
@@ -233,11 +220,6 @@
 
   .top { top: calc(var(--site-header-height) + 24px); gap: 18px; }
   .eyebrow { margin-bottom: 15px; font-size: 10px; }
-  .heading h2 {
-    font-size: clamp(32px, 9vw, 43px);
-    line-height: 1.12;
-  }
-
   .description {
     display: -webkit-box;
     overflow: hidden;
@@ -277,7 +259,6 @@
 @media (max-height: 720px) and (min-width: 601px) {
   .section { min-height: 620px; }
   .top { top: calc(var(--site-header-height) + 18px); }
-  .heading h2 { font-size: clamp(36px, 6.5vh, 52px); }
   .bottom { bottom: 20px; }
 }
 

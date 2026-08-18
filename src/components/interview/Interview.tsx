@@ -7,7 +7,7 @@ export default function Interview() {
   const selected = interviews[active]
 
   return (
-    <section id="interview" className={styles.section} aria-labelledby="interview-title">
+    <section id="interview" className={styles.section} aria-label="인터뷰">
       <div className={styles.portraits}>
         {interviews.map((profile, index) => (
           <img
@@ -25,7 +25,6 @@ export default function Interview() {
       <div className={styles.top}>
         <div className={styles.heading}>
           <p className={styles.eyebrow}>INTERVIEW</p>
-          <h2 id="interview-title"></h2>
         </div>
         <div className={styles.description} key={`description-${active}`}>
           <p className={styles.role}>{selected.role}</p>

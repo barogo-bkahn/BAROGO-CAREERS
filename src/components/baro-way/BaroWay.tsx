@@ -49,6 +49,7 @@ export default function BaroWay() {
         </header>
 
         <div className={styles.rollerFrame} aria-label="바로고의 다섯 가지 일하는 방식">
+          <span className={styles.frameBracket} aria-hidden="true">(</span>
           <div className={styles.roller}>
             <div
               className={`${styles.rail}${isResetting ? ` ${styles.railResetting}` : ''}`}
@@ -61,13 +62,14 @@ export default function BaroWay() {
                   key={`${principle.keyword}-${index}`}
                   aria-hidden={index !== activeIndex || index === principles.length}
                 >
-                  <strong><span aria-hidden="true">(</span> 바로 <em>{principle.keyword}</em> <span aria-hidden="true">)</span></strong>
+                  <strong>바로 <em>{principle.keyword}</em></strong>
                   <span className={styles.dash} aria-hidden="true">—</span>
                   <span>{principle.description}</span>
                 </p>
               ))}
             </div>
           </div>
+          <span className={styles.frameBracket} aria-hidden="true">)</span>
         </div>
 
         <footer className={styles.outro}>
