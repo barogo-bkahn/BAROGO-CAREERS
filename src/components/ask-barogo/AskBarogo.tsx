@@ -6,11 +6,15 @@ export default function AskBarogo() {
   const [messages, setMessages] = useState<ChatMessage[]>(initialMessages)
   const [input, setInput] = useState('')
   const [isTyping, setIsTyping] = useState(false)
+  const messagesRef = useRef<HTMLDivElement>(null)
   const messageEndRef = useRef<HTMLDivElement>(null)
   const replyTimerRef = useRef<number | null>(null)
 
   useEffect(() => {
-    messageEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+    const container = messagesRef.current
+    const end = messageEndRef.current
+    if (!container || !end) return
+    container.scrollTop = end.offsetTop
   }, [messages, isTyping])
 
   useEffect(() => () => {
@@ -46,7 +50,8 @@ export default function AskBarogo() {
   return (
     <section id="ask-barogo" className={styles.section} aria-labelledby="ask-barogo-title">
       <header className={styles.guidance}>
-        <h2 id="ask-barogo-title">바로고 채용에 대해 궁금한 점이나 의견이 있다면 자유롭게 남겨주세요 :)</h2>
+        <h2 id="ask-barogo-title">바로고 채용에 대해 궁금한 점이나 의견이 있다면<br />
+         자유롭게 남겨주세요 :)</h2>
         <p>여러분의 소중한 의견에 귀 기울여, 더 좋은 모습으로 답하겠습니다.</p>
       </header>
 
@@ -58,7 +63,7 @@ export default function AskBarogo() {
           </div>
         </div>
 
-        <div className={styles.messages} aria-live="polite" aria-label="BAROGO AI 대화 내용">
+        <div className={styles.messages} ref={messagesRef} aria-live="polite" aria-label="BAROGO AI 대화 내용">
           {messages.map((message) => (
             <div
               className={`${styles.messageRow} ${message.role === 'user' ? styles.messageRowUser : ''}`}

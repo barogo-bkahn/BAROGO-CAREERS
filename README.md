@@ -17,7 +17,7 @@ Open `http://127.0.0.1:3000` and scroll through the full-page careers experience
 - `src/styles/hero.css`: responsive composition and CSS motion
 - `src/components/baro-way/`: BARO WAY rolling principles section
 - `src/components/interview/`: interactive employee interview section
-- `src/components/how-we-grow/`: Benefits portrait wall and card carousel
+- `src/components/benefit/`: Benefit portrait wall and KPI card carousel
 - `src/components/ask-barogo/`: interactive recruitment chat prototype
 - `src/index.css`: local Neutral Face/Pretendard fonts and shared BAROGO tokens
 

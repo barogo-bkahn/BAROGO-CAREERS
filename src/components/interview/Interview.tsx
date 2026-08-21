@@ -59,7 +59,7 @@ export default function Interview() {
           <strong>{selected.name}</strong>
           <span className={styles.team}>{selected.team}</span>
           <span className={styles.title}>{selected.interviewTitle}</span>
-          <a href={selected.href}>INTERVIEW 보기 <span aria-hidden="true">→</span></a>
+          <a href="/interview">INTERVIEW 보기 <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>

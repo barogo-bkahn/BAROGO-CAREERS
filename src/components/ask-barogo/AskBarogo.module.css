@@ -17,12 +17,16 @@
 }
 
 .guidance {
-  width: min(100%, 760px);
+  display: grid;
+  width: min(calc(100% - 40px), 760px);
+  margin-inline: auto;
+  place-items: center;
   text-align: center;
 }
 
 .guidance h2 {
-  width: 100%;
+  width: fit-content;
+  max-width: 100%;
   margin: 0;
   font-family: var(--font-display), var(--font-ko), sans-serif;
   font-size: clamp(23px, 2vw, 30px);
@@ -30,7 +34,6 @@
   line-height: 1.28;
   letter-spacing: -.02em;
   text-align: center;
-  white-space: nowrap;
 }
 
 .guidance p {

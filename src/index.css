@@ -58,6 +58,16 @@
   --font-display: 'SB Aggro';
   --font-family-global: var(--font-en), var(--font-ko), sans-serif;
   --site-header-height: 76px;
+  /* Shared typography scale for sub/detail pages. */
+  --detail-hero-size: clamp(42px, 5vw, 64px);
+  --detail-section-title-size: clamp(16px, 1.35vw, 20px);
+  --detail-item-title-size: clamp(14px, 1vw, 16px);
+  --detail-body-size: clamp(12px, .85vw, 13px);
+  --detail-label-size: 10px;
+  --detail-number-size: clamp(38px, 4.2vw, 56px);
+  --detail-hero-line-height: 1;
+  --detail-title-line-height: 1.4;
+  --detail-body-line-height: 1.75;
   font-family: var(--font-family-global);
   color: #f6f7f2;
   background: #1f2924;
@@ -72,15 +82,23 @@ button, a { font: inherit; }
 button:focus-visible, a:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 4px; }
 
 @media (max-width: 767px) {
-  :root { --site-header-height: 66px; }
+  :root {
+    --site-header-height: 66px;
+    --detail-hero-size: clamp(36px, 11vw, 48px);
+    --detail-section-title-size: clamp(16px, 4.5vw, 19px);
+    --detail-item-title-size: clamp(14px, 4vw, 16px);
+    --detail-body-size: 12px;
+    --detail-label-size: 10px;
+    --detail-number-size: clamp(34px, 11vw, 46px);
+  }
 }
 
 html:has(#home-snap-page) {
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: none;
 }
 
 @media (max-width: 52rem), (max-height: 47rem) {
-  html:has(#home-snap-page) { scroll-snap-type: y proximity; }
+  html:has(#home-snap-page) { scroll-snap-type: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
 import styles from './BaroWay.module.css'
+import RollingBanner from './RollingBanner'
 
 const principles = [
   { keyword: '본다', description: '본질을 보고, 옳은 답을 선택합니다.' },
@@ -10,29 +10,6 @@ const principles = [
 ] as const
 
 export default function BaroWay() {
-  const [activeIndex, setActiveIndex] = useState(0)
-  const [isResetting, setIsResetting] = useState(false)
-
-  useEffect(() => {
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
-    if (reducedMotion.matches) return
-
-    const timer = window.setInterval(() => {
-      setIsResetting(false)
-      setActiveIndex((current) => current + 1)
-    }, 3200)
-
-    return () => window.clearInterval(timer)
-  }, [])
-
-  const handleRollEnd = () => {
-    if (activeIndex !== principles.length) return
-    setIsResetting(true)
-    setActiveIndex(0)
-  }
-
-  const rollingPrinciples = [...principles, principles[0]]
-
   return (
     <section id="baro-way" className={styles.section} aria-labelledby="baro-way-title">
       <div className={styles.inner}>
@@ -43,40 +20,17 @@ export default function BaroWay() {
             바로 갑니다.
           </h2>
           <p className={styles.lead}>
-            거창한 구호보다 매일의 판단과 행동으로,<br />
-            바로고다운 일하는 방식을 실천합니다.
+            거창한 구호보다 매일의 판단과 행동으로, 바로고답게 일하는 방식을 실천합니다.<br />
           </p>
         </header>
 
-        <div className={styles.rollerFrame} aria-label="바로고의 다섯 가지 일하는 방식">
-          <span className={styles.frameBracket} aria-hidden="true">(</span>
-          <div className={styles.roller}>
-            <div
-              className={`${styles.rail}${isResetting ? ` ${styles.railResetting}` : ''}`}
-              style={{ transform: `translateY(-${activeIndex * 100}%)` }}
-              onTransitionEnd={handleRollEnd}
-            >
-              {rollingPrinciples.map((principle, index) => (
-                <p
-                  className={styles.principle}
-                  key={`${principle.keyword}-${index}`}
-                  aria-hidden={index !== activeIndex || index === principles.length}
-                >
-                  <strong>바로 <em>{principle.keyword}</em></strong>
-                  <span className={styles.dash} aria-hidden="true">—</span>
-                  <span>{principle.description}</span>
-                </p>
-              ))}
-            </div>
-          </div>
-          <span className={styles.frameBracket} aria-hidden="true">)</span>
-        </div>
+        <RollingBanner principles={principles} />
 
         <footer className={styles.outro}>
           <p>
             좋은 영향이 물드는 생태계를 만드는 바로고의 일하는 방식을 만나보세요!
           </p>
-          <a href="#baro-way-detail">
+          <a href="/culture">
             BARO WAY 더 알아보기 <span aria-hidden="true">→</span>
           </a>
         </footer>

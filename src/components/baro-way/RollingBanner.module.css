@@ -1,0 +1,104 @@
+.board {
+  --keyword-font-size: clamp(22px, 2.05vw, 33px);
+  --desc-font-size: clamp(15px, 1.1vw, 18px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: clamp(36px, 6vh, 66px);
+}
+
+.display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(10px, 1.8vh, 16px);
+}
+
+.keywordRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(4px, .55vw, 7px);
+}
+
+.fixedWord {
+  flex: 0 0 auto;
+  color: #171715;
+  font-size: var(--keyword-font-size);
+  font-weight: 760;
+  letter-spacing: -.03em;
+}
+
+.rollWindow {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.rollTrack {
+  display: flex;
+  flex-direction: column;
+  animation: rollShift .62s cubic-bezier(.32, 0, .17, 1) both;
+}
+
+.rollItem {
+  display: block;
+  white-space: nowrap;
+}
+
+@keyframes rollShift {
+  0% { transform: translateY(0); filter: blur(0); }
+  38% { transform: translateY(-38%); filter: blur(3px); }
+  78% { transform: translateY(-53%); filter: blur(.6px); }
+  100% { transform: translateY(-50%); filter: blur(0); }
+}
+
+.keywordWindow {
+  flex: 0 0 auto;
+  width: calc(var(--keyword-font-size) * 3.9);
+  height: calc(var(--keyword-font-size) * 1.28);
+  line-height: calc(var(--keyword-font-size) * 1.28);
+  text-align: right;
+}
+
+.keywordWindow .rollItem {
+  height: calc(var(--keyword-font-size) * 1.28);
+  color: var(--color-primary);
+  font-size: var(--keyword-font-size);
+  font-weight: 760;
+  letter-spacing: -.03em;
+}
+
+.descWindow {
+  height: calc(var(--desc-font-size) * 1.55);
+  line-height: calc(var(--desc-font-size) * 1.55);
+}
+
+.descWindow .rollItem {
+  height: calc(var(--desc-font-size) * 1.55);
+  color: #6b6a64;
+  font-size: var(--desc-font-size);
+  font-weight: 430;
+  letter-spacing: -.02em;
+}
+
+@media (max-width: 900px) {
+  .board { margin-top: clamp(24px, 4vh, 38px); }
+}
+
+@media (max-width: 600px) {
+  .board {
+    --keyword-font-size: clamp(20px, 6.4vw, 24px);
+    --desc-font-size: clamp(12px, 3.4vw, 14px);
+    margin-top: 20px;
+  }
+
+  .display { gap: 8px; }
+  .keywordRow { gap: 3px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rollTrack { animation-duration: .01ms !important; }
+}
